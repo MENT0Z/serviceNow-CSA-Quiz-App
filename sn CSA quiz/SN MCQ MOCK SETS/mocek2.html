@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with Toggle Answer and Score</title>
+    <style>
+        .answer {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quiz">
+        <!-- Set of Questions 3 to 10 - Platform Overview and Instance Configuration -->
+        <h3>1. Which scripting language is used for client-side interactions in ServiceNow?</h3>
+        <ul>
+            <li>A. Python</li>
+            <li>B. JavaScript</li>
+            <li>C. SQL</li>
+            <li>D. Ruby</li>
+        </ul>
+        <button class="show-answer-btn">Show Answer</button>
+        <p class="answer">Answer: B</p>
+        
+        <h3>2. What is ServiceNow primarily used for?</h3>
+        <ul>
+            <li>A. Content Management</li>
+            <li>B. IT Service Management</li>
+            <li>C. Social Media</li>
+            <li>D. Blogging</li>
+        </ul>
+        <button class="show-answer-btn">Show Answer</button>
+        <p class="answer">Answer: B</p>
+
+        <h3>3. What is the main purpose of the ServiceNow platform?</h3>
+        <ul>
+            <li><input type="radio" name="q3" value="A"> A. Content Management</li>
+            <li><input type="radio" name="q3" value="B"> B. IT Service Management (ITSM)</li>
+            <li><input type="radio" name="q3" value="C"> C. Online Marketing</li>
+            <li><input type="radio" name="q3" value="D"> D. Blogging</li>
+        </ul>
+        <button onclick="toggleAnswer('ans3')">Show Answer</button>
+        <p id="ans3" class="answer">Answer: B</p>
+        
+        <h3>4. Which of the following is an interface component of ServiceNow's Next Experience Unified Navigation?</h3>
+        <ul>
+            <li><input type="radio" name="q4" value="A"> A. Application Navigator</li>
+            <li><input type="radio" name="q4" value="B"> B. Help Desk</li>
+            <li><input type="radio" name="q4" value="C"> C. Mobile Experience</li>
+            <li><input type="radio" name="q4" value="D"> D. Service Catalog</li>
+        </ul>
+        <button onclick="toggleAnswer('ans4')">Show Answer</button>
+        <p id="ans4" class="answer">Answer: A</p>
+
+        <h3>5. Which of the following is true about plugins in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q5" value="A"> A. They can only be installed by administrators.</li>
+            <li><input type="radio" name="q5" value="B"> B. They are installed by default in every instance.</li>
+            <li><input type="radio" name="q5" value="C"> C. They cannot be uninstalled once added.</li>
+            <li><input type="radio" name="q5" value="D"> D. Plugins are available only in the mobile app.</li>
+        </ul>
+        <button onclick="toggleAnswer('ans5')">Show Answer</button>
+        <p id="ans5" class="answer">Answer: A</p>
+
+        <h3>6. How can users personalize their ServiceNow instance experience?</h3>
+        <ul>
+            <li><input type="radio" name="q6" value="A"> A. By customizing UI Themes</li>
+            <li><input type="radio" name="q6" value="B"> B. By modifying databases</li>
+            <li><input type="radio" name="q6" value="C"> C. By changing source code</li>
+            <li><input type="radio" name="q6" value="D"> D. By updating APIs</li>
+        </ul>
+        <button onclick="toggleAnswer('ans6')">Show Answer</button>
+        <p id="ans6" class="answer">Answer: A</p>
+
+        <h3>7. Which of these features is included in the Common User Interface of ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q7" value="A"> A. UI Builder</li>
+            <li><input type="radio" name="q7" value="B"> B. Taskbar</li>
+            <li><input type="radio" name="q7" value="C"> C. Visual Designer</li>
+            <li><input type="radio" name="q7" value="D"> D. Workflows</li>
+        </ul>
+        <button onclick="toggleAnswer('ans7')">Show Answer</button>
+        <p id="ans7" class="answer">Answer: A</p>
+
+        <h3>8. What is the purpose of ServiceNow's Form Template feature?</h3>
+        <ul>
+            <li><input type="radio" name="q8" value="A"> A. To manage data imports</li>
+            <li><input type="radio" name="q8" value="B"> B. To automate task assignments</li>
+            <li><input type="radio" name="q8" value="C"> C. To save and reuse form fields</li>
+            <li><input type="radio" name="q8" value="D"> D. To track the task lifecycle</li>
+        </ul>
+        <button onclick="toggleAnswer('ans8')">Show Answer</button>
+        <p id="ans8" class="answer">Answer: C</p>
+
+        <h3>9. What is a Visual Task Board (VTB) in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q9" value="A"> A. A dashboard to display all incidents</li>
+            <li><input type="radio" name="q9" value="B"> B. A board to manage tasks and workflows visually</li>
+            <li><input type="radio" name="q9" value="C"> C. A list of assigned users</li>
+            <li><input type="radio" name="q9" value="D"> D. A feature for database management</li>
+        </ul>
+        <button onclick="toggleAnswer('ans9')">Show Answer</button>
+        <p id="ans9" class="answer">Answer: B</p>
+
+        <h3>10. Which one of the following is a key advantage of using Flow Designer?</h3>
+        <ul>
+            <li><input type="radio" name="q10" value="A"> A. It allows coding in multiple programming languages.</li>
+            <li><input type="radio" name="q10" value="B"> B. It automates complex workflows without scripting.</li>
+            <li><input type="radio" name="q10" value="C"> C. It is only accessible via the mobile app.</li>
+            <li><input type="radio" name="q10" value="D"> D. It integrates with external databases.</li>
+        </ul>
+        <button onclick="toggleAnswer('ans10')">Show Answer</button>
+        <p id="ans10" class="answer">Answer: B</p>
+        
+        <!-- Continue adding questions in a similar format -->
+
+        <h3>11. What is the primary benefit of using ServiceNow Knowledge Management?</h3>
+        <ul>
+            <li><input type="radio" name="q11" value="A"> A. To store user data</li>
+            <li><input type="radio" name="q11" value="B"> B. To track incidents</li>
+            <li><input type="radio" name="q11" value="C"> C. To share and manage information</li>
+            <li><input type="radio" name="q11" value="D"> D. To control user access</li>
+        </ul>
+        <button onclick="toggleAnswer('ans11')">Show Answer</button>
+        <p id="ans11" class="answer">Answer: C</p>
+
+        <h3>12. In ServiceNow, what does a 'Business Rule' do?</h3>
+        <ul>
+            <li><input type="radio" name="q12" value="A"> A. Creates a new form</li>
+            <li><input type="radio" name="q12" value="B"> B. Executes on the server side</li>
+            <li><input type="radio" name="q12" value="C"> C. Modifies user profiles</li>
+            <li><input type="radio" name="q12" value="D"> D. Automatically generates reports</li>
+        </ul>
+        <button onclick="toggleAnswer('ans12')">Show Answer</button>
+        <p id="ans12" class="answer">Answer: B</p>
+
+        <h3>13. Which feature in ServiceNow allows for automation of approvals, tasks, and other process flows?</h3>
+        <ul>
+            <li><input type="radio" name="q13" value="A"> A. UI Actions</li>
+            <li><input type="radio" name="q13" value="B"> B. Workflows</li>
+            <li><input type="radio" name="q13" value="C"> C. Application Navigator</li>
+            <li><input type="radio" name="q13" value="D"> D. Visual Task Boards</li>
+        </ul>
+        <button onclick="toggleAnswer('ans13')">Show Answer</button>
+        <p id="ans13" class="answer">Answer: B</p>
+
+        <h3>14. What is the purpose of the CMDB (Configuration Management Database) in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q14" value="A"> A. To manage user accounts</li>
+            <li><input type="radio" name="q14" value="B"> B. To manage IT assets and relationships</li>
+            <li><input type="radio" name="q14" value="C"> C. To store incident records</li>
+            <li><input type="radio" name="q14" value="D"> D. To create knowledge articles</li>
+        </ul>
+        <button onclick="toggleAnswer('ans14')">Show Answer</button>
+        <p id="ans14" class="answer">Answer: B</p>
+
+        <h3>15. What is a 'GlideRecord' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q15" value="A"> A. A client-side API to fetch records</li>
+            <li><input type="radio" name="q15" value="B"> B. A server-side API to interact with tables</li>
+            <li><input type="radio" name="q15" value="C"> C. A method for creating forms</li>
+            <li><input type="radio" name="q15" value="D"> D. A tool for debugging workflows</li>
+        </ul>
+        <button onclick="toggleAnswer('ans15')">Show Answer</button>
+        <p id="ans15" class="answer">Answer: B</p>
+
+        <h3>16. What does a 'Client Script' do in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q16" value="A"> A. Executes on the server</li>
+            <li><input type="radio" name="q16" value="B"> B. Executes on the client/browser</li>
+            <li><input type="radio" name="q16" value="C"> C. Modifies the CMDB</li>
+            <li><input type="radio" name="q16" value="D"> D. Generates reports</li>
+        </ul>
+        <button onclick="toggleAnswer('ans16')">Show Answer</button>
+        <p id="ans16" class="answer">Answer: B</p>
+
+        <h3>17. What is the purpose of ServiceNow's 'Update Set'?</h3>
+        <ul>
+            <li><input type="radio" name="q17" value="A"> A. To modify records</li>
+            <li><input type="radio" name="q17" value="B"> B. To track customizations and move them between instances</li>
+            <li><input type="radio" name="q17" value="C"> C. To update system security</li>
+            <li><input type="radio" name="q17" value="D"> D. To install plugins</li>
+        </ul>
+        <button onclick="toggleAnswer('ans17')">Show Answer</button>
+        <p id="ans17" class="answer">Answer: B</p>
+
+        <h3>18. What is an 'Incident' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q18" value="A"> A. A security breach</li>
+            <li><input type="radio" name="q18" value="B"> B. An unplanned interruption of a service</li>
+            <li><input type="radio" name="q18" value="C"> C. A user query</li>
+            <li><input type="radio" name="q18" value="D"> D. A task completion</li>
+        </ul>
+        <button onclick="toggleAnswer('ans18')">Show Answer</button>
+        <p id="ans18" class="answer">Answer: B</p>
+
+        <h3>19. What does a 'Transform Map' do in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q19" value="A"> A. Moves records between instances</li>
+            <li><input type="radio" name="q19" value="B"> B. Maps incoming data to the correct ServiceNow table</li>
+            <li><input type="radio" name="q19" value="C"> C. Creates a workflow</li>
+            <li><input type="radio" name="q19" value="D"> D. Configures user roles</li>
+        </ul>
+        <button onclick="toggleAnswer('ans19')">Show Answer</button>
+        <p id="ans19" class="answer">Answer: B</p>
+
+        <h3>20. What does the 'Service Catalog' allow users to do in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q20" value="A"> A. Manage incidents</li>
+            <li><input type="radio" name="q20" value="B"> B. Request goods and services</li>
+            <li><input type="radio" name="q20" value="C"> C. Configure reports</li>
+            <li><input type="radio" name="q20" value="D"> D. Modify the CMDB</li>
+        </ul>
+        <button onclick="toggleAnswer('ans20')">Show Answer</button>
+        <p id="ans20" class="answer">Answer: B</p>
+        <h3>20.0. Which application is used to automate workflows in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q20" value="A"> A. Flow Designer</li>
+            <li><input type="radio" name="q20" value="B"> B. Workflow Editor</li>
+            <li><input type="radio" name="q20" value="C"> C. Service Catalog</li>
+            <li><input type="radio" name="q20" value="D"> D. Virtual Agent</li>
+        </ul>
+        <button onclick="toggleAnswer('ans20.0')">Show Answer</button>
+        <p id="ans20.0" class="answer">Answer: A</p>
+    
+        <h3>21. What type of data structure is used to manage lists of tasks in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q21" value="A"> A. Arrays</li>
+            <li><input type="radio" name="q21" value="B"> B. Collections</li>
+            <li><input type="radio" name="q21" value="C"> C. Tables</li>
+            <li><input type="radio" name="q21" value="D"> D. Objects</li>
+        </ul>
+        <button onclick="toggleAnswer('ans21')">Show Answer</button>
+        <p id="ans21" class="answer">Answer: C</p>
+    
+        <h3>22. Which of the following components is part of the ServiceNow architecture?</h3>
+        <ul>
+            <li><input type="radio" name="q22" value="A"> A. Web Server</li>
+            <li><input type="radio" name="q22" value="B"> B. Application Server</li>
+            <li><input type="radio" name="q22" value="C"> C. Database Server</li>
+            <li><input type="radio" name="q22" value="D"> D. All of the above</li>
+        </ul>
+        <button onclick="toggleAnswer('ans22')">Show Answer</button>
+        <p id="ans22" class="answer">Answer: D</p>
+    
+        <h3>23. What is the purpose of a 'Knowledge Base' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q23" value="A"> A. To track incidents</li>
+            <li><input type="radio" name="q23" value="B"> B. To store company policies</li>
+            <li><input type="radio" name="q23" value="C"> C. To provide information and solutions to users</li>
+            <li><input type="radio" name="q23" value="D"> D. To manage change requests</li>
+        </ul>
+        <button onclick="toggleAnswer('ans23')">Show Answer</button>
+        <p id="ans23" class="answer">Answer: C</p>
+    
+        <h3>24. In ServiceNow, what is a 'Task'?</h3>
+        <ul>
+            <li><input type="radio" name="q24" value="A"> A. A type of incident</li>
+            <li><input type="radio" name="q24" value="B"> B. An assignment to be completed</li>
+            <li><input type="radio" name="q24" value="C"> C. A change request</li>
+            <li><input type="radio" name="q24" value="D"> D. A knowledge article</li>
+        </ul>
+        <button onclick="toggleAnswer('ans24')">Show Answer</button>
+        <p id="ans24" class="answer">Answer: B</p>
+    
+        <h3>25. What type of plugin is required to use the 'Virtual Agent' feature in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q25" value="A"> A. Virtual Agent Plugin</li>
+            <li><input type="radio" name="q25" value="B"> B. Chatbot Plugin</li>
+            <li><input type="radio" name="q25" value="C"> C. Incident Management Plugin</li>
+            <li><input type="radio" name="q25" value="D"> D. Service Catalog Plugin</li>
+        </ul>
+        <button onclick="toggleAnswer('ans25')">Show Answer</button>
+        <p id="ans25" class="answer">Answer: A</p>
+    
+        <h3>26. What is the function of 'UI Policies' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q26" value="A"> A. To enforce data validation rules</li>
+            <li><input type="radio" name="q26" value="B"> B. To manage user permissions</li>
+            <li><input type="radio" name="q26" value="C"> C. To create dashboards</li>
+            <li><input type="radio" name="q26" value="D"> D. To manage workflows</li>
+        </ul>
+        <button onclick="toggleAnswer('ans26')">Show Answer</button>
+        <p id="ans26" class="answer">Answer: A</p>
+    
+        <h3>27. In ServiceNow, what does 'SLAs' stand for?</h3>
+        <ul>
+            <li><input type="radio" name="q27" value="A"> A. Service Level Agreements</li>
+            <li><input type="radio" name="q27" value="B"> B. System Level Agreements</li>
+            <li><input type="radio" name="q27" value="C"> C. Service Level Assessment</li>
+            <li><input type="radio" name="q27" value="D"> D. System Level Assessment</li>
+        </ul>
+        <button onclick="toggleAnswer('ans27')">Show Answer</button>
+        <p id="ans27" class="answer">Answer: A</p>
+    
+        <h3>28. Which type of data can be imported into ServiceNow using Data Import?</h3>
+        <ul>
+            <li><input type="radio" name="q28" value="A"> A. Excel files</li>
+            <li><input type="radio" name="q28" value="B"> B. CSV files</li>
+            <li><input type="radio" name="q28" value="C"> C. XML files</li>
+            <li><input type="radio" name="q28" value="D"> D. All of the above</li>
+        </ul>
+        <button onclick="toggleAnswer('ans28')">Show Answer</button>
+        <p id="ans28" class="answer">Answer: D</p>
+    
+        <h3>29. What is the role of the 'Service Desk' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q29" value="A"> A. To resolve technical issues</li>
+            <li><input type="radio" name="q29" value="B"> B. To manage service requests</li>
+            <li><input type="radio" name="q29" value="C"> C. To track incidents</li>
+            <li><input type="radio" name="q29" value="D"> D. All of the above</li>
+        </ul>
+        <button onclick="toggleAnswer('ans29')">Show Answer</button>
+        <p id="ans29" class="answer">Answer: D</p>
+    
+        <h3>30. In ServiceNow, which module is used to manage problems?</h3>
+        <ul>
+            <li><input type="radio" name="q30" value="A"> A. Incident Management</li>
+            <li><input type="radio" name="q30" value="B"> B. Problem Management</li>
+            <li><input type="radio" name="q30" value="C"> C. Change Management</li>
+            <li><input type="radio" name="q30" value="D"> D. Service Catalog</li>
+        </ul>
+        <button onclick="toggleAnswer('ans30')">Show Answer</button>
+        <p id="ans30" class="answer">Answer: B</p>
+    
+        <h3>31. What is a 'Configuration Item' (CI) in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q31" value="A"> A. A physical or logical entity</li>
+            <li><input type="radio" name="q31" value="B"> B. A type of incident</li>
+            <li><input type="radio" name="q31" value="C"> C. A type of change request</li>
+            <li><input type="radio" name="q31" value="D"> D. A user account</li>
+        </ul>
+        <button onclick="toggleAnswer('ans31')">Show Answer</button>
+        <p id="ans31" class="answer">Answer: A</p>
+    
+        <h3>32. In ServiceNow, what does 'Change Request' refer to?</h3>
+        <ul>
+            <li><input type="radio" name="q32" value="A"> A. A request to modify a CI</li>
+            <li><input type="radio" name="q32" value="B"> B. A request to resolve an incident</li>
+            <li><input type="radio" name="q32" value="C"> C. A request to create a new knowledge article</li>
+            <li><input type="radio" name="q32" value="D"> D. A request to close a task</li>
+        </ul>
+        <button onclick="toggleAnswer('ans32')">Show Answer</button>
+        <p id="ans32" class="answer">Answer: A</p>
+    
+        <h3>33. What is the 'Service Portal' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q33" value="A"> A. A tool for IT teams</li>
+            <li><input type="radio" name="q33" value="B"> B. A user interface for customers to access services</li>
+            <li><input type="radio" name="q33" value="C"> C. A dashboard for monitoring incidents</li>
+            <li><input type="radio" name="q33" value="D"> D. A report generation tool</li>
+        </ul>
+        <button onclick="toggleAnswer('ans33')">Show Answer</button>
+        <p id="ans33" class="answer">Answer: B</p>
+    
+        <h3>34. In ServiceNow, which of the following is used to visualize data?</h3>
+        <ul>
+            <li><input type="radio" name="q34" value="A"> A. Reports</li>
+            <li><input type="radio" name="q34" value="B"> B. Dashboards</li>
+            <li><input type="radio" name="q34" value="C"> C. Performance Analytics</li>
+            <li><input type="radio" name="q34" value="D"> D. All of the above</li>
+        </ul>
+        <button onclick="toggleAnswer('ans34')">Show Answer</button>
+        <p id="ans34" class="answer">Answer: D</p>
+    
+        <h3>35. What is a 'Business Rule' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q35" value="A"> A. A rule for user permissions</li>
+            <li><input type="radio" name="q35" value="B"> B. A server-side script that runs when a record is inserted or updated</li>
+            <li><input type="radio" name="q35" value="C"> C. A rule for email notifications</li>
+            <li><input type="radio" name="q35" value="D"> D. A workflow definition</li>
+        </ul>
+        <button onclick="toggleAnswer('ans35')">Show Answer</button>
+        <p id="ans35" class="answer">Answer: B</p>
+    
+        <h3>36. In ServiceNow, what does 'CMDB' stand for?</h3>
+        <ul>
+            <li><input type="radio" name="q36" value="A"> A. Change Management Database</li>
+            <li><input type="radio" name="q36" value="B"> B. Configuration Management Database</li>
+            <li><input type="radio" name="q36" value="C"> C. Common Management Database</li>
+            <li><input type="radio" name="q36" value="D"> D. Central Management Database</li>
+        </ul>
+        <button onclick="toggleAnswer('ans36')">Show Answer</button>
+        <p id="ans36" class="answer">Answer: B</p>
+    
+        <h3>37. What is 'Incident Management' used for in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q37" value="A"> A. To track changes</li>
+            <li><input type="radio" name="q37" value="B"> B. To manage service requests</li>
+            <li><input type="radio" name="q37" value="C"> C. To resolve incidents and restore service</li>
+            <li><input type="radio" name="q37" value="D"> D. To document knowledge</li>
+        </ul>
+        <button onclick="toggleAnswer('ans37')">Show Answer</button>
+        <p id="ans37" class="answer">Answer: C</p>
+    
+        <h3>38. What does 'Release Management' involve in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q38" value="A"> A. Planning, scheduling, and controlling the movement of releases</li>
+            <li><input type="radio" name="q38" value="B"> B. Managing incidents</li>
+            <li><input type="radio" name="q38" value="C"> C. Managing service requests</li>
+            <li><input type="radio" name="q38" value="D"> D. Tracking performance analytics</li>
+        </ul>
+        <button onclick="toggleAnswer('ans38')">Show Answer</button>
+        <p id="ans38" class="answer">Answer: A</p>
+    
+        <h3>39. In ServiceNow, what is the purpose of 'User Roles'?</h3>
+        <ul>
+            <li><input type="radio" name="q39" value="A"> A. To assign responsibilities</li>
+            <li><input type="radio" name="q39" value="B"> B. To control access to applications and data</li>
+            <li><input type="radio" name="q39" value="C"> C. To define workflows</li>
+            <li><input type="radio" name="q39" value="D"> D. To track incidents</li>
+        </ul>
+        <button onclick="toggleAnswer('ans39')">Show Answer</button>
+        <p id="ans39" class="answer">Answer: B</p>
+    
+        <h3>40. What is the main function of 'ServiceNow IntegrationHub'?</h3>
+        <ul>
+            <li><input type="radio" name="q40" value="A"> A. To manage user permissions</li>
+            <li><input type="radio" name="q40" value="B"> B. To connect and integrate external systems with ServiceNow</li>
+            <li><input type="radio" name="q40" value="C"> C. To create reports</li>
+            <li><input type="radio" name="q40" value="D"> D. To manage service requests</li>
+        </ul>
+        <button onclick="toggleAnswer('ans40')">Show Answer</button>
+        <p id="ans40" class="answer">Answer: B</p>
+    
+        <h3>41. What is the purpose of 'Service Level Management' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q41" value="A"> A. To manage service requests</li>
+            <li><input type="radio" name="q41" value="B"> B. To monitor and report on service levels</li>
+            <li><input type="radio" name="q41" value="C"> C. To create knowledge articles</li>
+            <li><input type="radio" name="q41" value="D"> D. To manage incidents</li>
+        </ul>
+        <button onclick="toggleAnswer('ans41')">Show Answer</button>
+        <p id="ans41" class="answer">Answer: B</p>
+    
+        <h3>42. What is a 'Self-Service Portal' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q42" value="A"> A. A portal for IT staff</li>
+            <li><input type="radio" name="q42" value="B"> B. A user interface for end-users to request services</li>
+            <li><input type="radio" name="q42" value="C"> C. A dashboard for tracking incidents</li>
+            <li><input type="radio" name="q42" value="D"> D. A tool for creating reports</li>
+        </ul>
+        <button onclick="toggleAnswer('ans42')">Show Answer</button>
+        <p id="ans42" class="answer">Answer: B</p>
+    
+        <h3>43. In ServiceNow, what does 'Platform' refer to?</h3>
+        <ul>
+            <li><input type="radio" name="q43" value="A"> A. A type of incident</li>
+            <li><input type="radio" name="q43" value="B"> B. The underlying infrastructure of ServiceNow</li>
+            <li><input type="radio" name="q43" value="C"> C. A specific application in ServiceNow</li>
+            <li><input type="radio" name="q43" value="D"> D. A user role</li>
+        </ul>
+        <button onclick="toggleAnswer('ans43')">Show Answer</button>
+        <p id="ans43" class="answer">Answer: B</p>
+    
+        <h3>44. What does 'Knowledge Management' in ServiceNow focus on?</h3>
+        <ul>
+            <li><input type="radio" name="q44" value="A"> A. Managing service requests</li>
+            <li><input type="radio" name="q44" value="B"> B. Creating and sharing knowledge articles</li>
+            <li><input type="radio" name="q44" value="C"> C. Monitoring incidents</li>
+            <li><input type="radio" name="q44" value="D"> D. Managing changes</li>
+        </ul>
+        <button onclick="toggleAnswer('ans44')">Show Answer</button>
+        <p id="ans44" class="answer">Answer: B</p>
+    
+        <h3>45. What is 'Problem Management' used for in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q45" value="A"> A. To manage service requests</li>
+            <li><input type="radio" name="q45" value="B"> B. To identify and manage the root cause of incidents</li>
+            <li><input type="radio" name="q45" value="C"> C. To create knowledge articles</li>
+            <li><input type="radio" name="q45" value="D"> D. To monitor service levels</li>
+        </ul>
+        <button onclick="toggleAnswer('ans45')">Show Answer</button>
+        <p id="ans45" class="answer">Answer: B</p>
+    
+        <h3>46. What does 'Service Catalog' refer to in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q46" value="A"> A. A list of services available to customers</li>
+            <li><input type="radio" name="q46" value="B"> B. A catalog of incidents</li>
+            <li><input type="radio" name="q46" value="C"> C. A list of changes</li>
+            <li><input type="radio" name="q46" value="D"> D. A report of service levels</li>
+        </ul>
+        <button onclick="toggleAnswer('ans46')">Show Answer</button>
+        <p id="ans46" class="answer">Answer: A</p>
+    
+        <h3>47. What is a 'Service Level Agreement' (SLA) in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q47" value="A"> A. An agreement between IT and a customer</li>
+            <li><input type="radio" name="q47" value="B"> B. A document that outlines service expectations</li>
+            <li><input type="radio" name="q47" value="C"> C. Both A and B</li>
+            <li><input type="radio" name="q47" value="D"> D. None of the above</li>
+        </ul>
+        <button onclick="toggleAnswer('ans47')">Show Answer</button>
+        <p id="ans47" class="answer">Answer: C</p>
+    
+        <h3>48. In ServiceNow, what is 'Virtual Agent'?</h3>
+        <ul>
+            <li><input type="radio" name="q48" value="A"> A. A tool for automating tasks</li>
+            <li><input type="radio" name="q48" value="B"> B. A chatbot that interacts with users</li>
+            <li><input type="radio" name="q48" value="C"> C. A system for tracking incidents</li>
+            <li><input type="radio" name="q48" value="D"> D. A report generation tool</li>
+        </ul>
+        <button onclick="toggleAnswer('ans48')">Show Answer</button>
+        <p id="ans48" class="answer">Answer: B</p>
+    
+        <h3>49. What is the purpose of 'Change Management' in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q49" value="A"> A. To manage service requests</li>
+            <li><input type="radio" name="q49" value="B"> B. To ensure changes are made with minimal disruption</li>
+            <li><input type="radio" name="q49" value="C"> C. To monitor incidents</li>
+            <li><input type="radio" name="q49" value="D"> D. To track performance analytics</li>
+        </ul>
+        <button onclick="toggleAnswer('ans49')">Show Answer</button>
+        <p id="ans49" class="answer">Answer: B</p>
+    
+        <h3>50. What is a 'Configuration Item' (CI) in ServiceNow?</h3>
+        <ul>
+            <li><input type="radio" name="q50" value="A"> A. A component of the IT infrastructure</li>
+            <li><input type="radio" name="q50" value="B"> B. A user role</li>
+            <li><input type="radio" name="q50" value="C"> C. A specific application</li>
+            <li><input type="radio" name="q50" value="D"> D. A type of service</li>
+        </ul>
+        <button onclick="toggleAnswer('ans50')">Show Answer</button>
+        <p id="ans50" class="answer">Answer: A</p>
+        
+        <h3>51. What is 'Incident Management' in ServiceNow used for?</h3>
+<ul>
+    <li><input type="radio" name="q51" value="A"> A. To manage service requests</li>
+    <li><input type="radio" name="q51" value="B"> B. To restore normal service operation as quickly as possible</li>
+    <li><input type="radio" name="q51" value="C"> C. To identify and document changes</li>
+    <li><input type="radio" name="q51" value="D"> D. To monitor service performance</li>
+</ul>
+<button onclick="toggleAnswer('ans51')">Show Answer</button>
+<p id="ans51" class="answer">Answer: B</p>
+
+<h3>52. What does 'Release Management' focus on in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q52" value="A"> A. Planning and controlling the movement of releases</li>
+    <li><input type="radio" name="q52" value="B"> B. Monitoring service levels</li>
+    <li><input type="radio" name="q52" value="C"> C. Identifying incidents</li>
+    <li><input type="radio" name="q52" value="D"> D. Managing knowledge articles</li>
+</ul>
+<button onclick="toggleAnswer('ans52')">Show Answer</button>
+<p id="ans52" class="answer">Answer: A</p>
+
+<h3>53. What is the main purpose of 'Asset Management' in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q53" value="A"> A. To manage service requests</li>
+    <li><input type="radio" name="q53" value="B"> B. To track and manage IT assets</li>
+    <li><input type="radio" name="q53" value="C"> C. To monitor incidents</li>
+    <li><input type="radio" name="q53" value="D"> C. To manage changes</li>
+</ul>
+<button onclick="toggleAnswer('ans53')">Show Answer</button>
+<p id="ans53" class="answer">Answer: B</p>
+
+<h3>54. In ServiceNow, what is 'Event Management' used for?</h3>
+<ul>
+    <li><input type="radio" name="q54" value="A"> A. To manage incidents</li>
+    <li><input type="radio" name="q54" value="B"> B. To monitor events and generate alerts</li>
+    <li><input type="radio" name="q54" value="C"> C. To create knowledge articles</li>
+    <li><input type="radio" name="q54" value="D"> D. To manage service requests</li>
+</ul>
+<button onclick="toggleAnswer('ans54')">Show Answer</button>
+<p id="ans54" class="answer">Answer: B</p>
+
+<h3>55. What does 'Service Mapping' do in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q55" value="A"> A. Maps business services to infrastructure components</li>
+    <li><input type="radio" name="q55" value="B"> B. Manages service requests</li>
+    <li><input type="radio" name="q55" value="C"> C. Monitors incidents</li>
+    <li><input type="radio" name="q55" value="D"> D. Generates reports</li>
+</ul>
+<button onclick="toggleAnswer('ans55')">Show Answer</button>
+<p id="ans55" class="answer">Answer: A</p>
+
+<h3>56. What is the purpose of 'Knowledge Articles' in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q56" value="A"> A. To provide information on IT services</li>
+    <li><input type="radio" name="q56" value="B"> B. To manage incidents</li>
+    <li><input type="radio" name="q56" value="C"> C. To monitor service levels</li>
+    <li><input type="radio" name="q56" value="D"> D. To manage change requests</li>
+</ul>
+<button onclick="toggleAnswer('ans56')">Show Answer</button>
+<p id="ans56" class="answer">Answer: A</p>
+
+<h3>57. What is a 'Change Request' in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q57" value="A"> A. A request to change an IT service</li>
+    <li><input type="radio" name="q57" value="B"> B. A document outlining service levels</li>
+    <li><input type="radio" name="q57" value="C"> C. A report of incidents</li>
+    <li><input type="radio" name="q57" value="D"> D. A user role</li>
+</ul>
+<button onclick="toggleAnswer('ans57')">Show Answer</button>
+<p id="ans57" class="answer">Answer: A</p>
+
+<h3>58. What does 'Performance Analytics' in ServiceNow provide?</h3>
+<ul>
+    <li><input type="radio" name="q58" value="A"> A. Monitoring service requests</li>
+    <li><input type="radio" name="q58" value="B"> B. Insights into service performance and trends</li>
+    <li><input type="radio" name="q58" value="C"> C. Tracking incidents</li>
+    <li><input type="radio" name="q58" value="D"> D. Managing assets</li>
+</ul>
+<button onclick="toggleAnswer('ans58')">Show Answer</button>
+<p id="ans58" class="answer">Answer: B</p>
+
+<h3>59. What is 'Business Continuity Management' in ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q59" value="A"> A. Managing IT service requests</li>
+    <li><input type="radio" name="q59" value="B"> B. Ensuring critical business functions continue during a disruption</li>
+    <li><input type="radio" name="q59" value="C"> C. Monitoring performance metrics</li>
+    <li><input type="radio" name="q59" value="D"> D. Tracking incidents</li>
+</ul>
+<button onclick="toggleAnswer('ans59')">Show Answer</button>
+<p id="ans59" class="answer">Answer: B</p>
+
+<h3>60. What does 'ITIL' stand for in the context of ServiceNow?</h3>
+<ul>
+    <li><input type="radio" name="q60" value="A"> A. Information Technology Infrastructure Library</li>
+    <li><input type="radio" name="q60" value="B"> B. Information Technology Integration Library</li>
+    <li><input type="radio" name="q60" value="C"> C. Information Technology Interface Library</li>
+    <li><input type="radio" name="q60" value="D"> D. Information Technology Information Library</li>
+</ul>
+<button onclick="toggleAnswer('ans60')">Show Answer</button>
+<p id="ans60" class="answer">Answer: A</p>
+
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+    <p id="score"></p>
+
+    <script>
+        // This function toggles the answer visibility
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+        
+        // Store the correct answers for each question
+        const correctAnswers = {
+            q1: "B",
+            q2: "B",
+            q3: "B",
+            q4: "A",
+            q5: "A",
+            q6: "A",
+            q7: "A",
+            q8: "C",
+            q9: "B",
+            q10: "B",
+            q11:"C",
+            q12:"B",
+            q13:"B",
+            q14:"B",
+            q15:"B",
+            q16:"B",
+            q17:"B",
+            q18:"B",
+            q19:"B",
+            q20:"B"
+            // Continue adding correct answers for remaining questions
+        };
+
+        // Function to calculate the score
+        function submitQuiz() {
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+
+            // Loop through all the questions and check the answers
+            for (let question in correctAnswers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerText = `Your score is: ${score} out of ${totalQuestions}`;
+        }
+    </script>
+
+</body>
+</html>
